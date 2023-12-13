@@ -2,7 +2,9 @@
 
 ## Overview
 
-Welcome to the Aviv QA Web Technical Test! This challenge involves automating test scenarios for the [demo.nopcommerce.com](https://demo.nopcommerce.com/) website using your preferred programming language ([TypeScript, JavaScript, Java, Python, or .NET]) and your preferred test automation framework or library ([Playwright, WebdriverIO, Cypress, TestCafe, or Selenium Webdriver]). The focus is on implementing automation tests following the Page Object Model (POM) and Data-Driven Testing (DDT) principles for better maintainability and readability.
+Welcome to the Aviv QA Web Technical Test! This challenge involves automating test scenarios for the [demo.nopcommerce.com](https://demo.nopcommerce.com/) website using your preferred programming language (TypeScript, JavaScript, Java, Python, or .NET) and your preferred test automation framework or library (Playwright, WebdriverIO, Cypress, TestCafe, or Selenium Webdriver). 
+
+The focus is on implementing automation tests following the Page Object Model (POM) and Data-Driven Testing (DDT) principles for better maintainability and readability.
 
 ## Getting Started
 
@@ -66,7 +68,7 @@ Welcome to the Aviv QA Web Technical Test! This challenge involves automating te
 
 ### Continuous Integration
 
-- The project should be integrated with [CircleCI, GitLab, Jenkins, or GitHub Actions] for continuous integration.
+- The project should be integrated with (CircleCI, GitLab, Jenkins, or GitHub Actions) for continuous integration.
 - The automation suite is triggered on each push or pull request to the repository.
 
 ### Test Reports
