@@ -6,37 +6,14 @@ Welcome to the Aviv QA Web Technical Test! This challenge involves automating te
 
 ## Getting Started
 
-1. Understand the Challenge Requirements
-
-Read and comprehend the test automation challenge requirements provided in this repository.
-
-2. Fork the Repository
-
-Fork the original repository to your GitHub account to submit pull requests.
-
-3. Create a New Branch
-
-Create a new branch to work on your changes.
-
-4. Write Automated Tests
-
-Implement test automation according to the challenge requirements. Follow best practices for writing clear, maintainable, and efficient code.
-
-5. Commit Changes
-
-Commit your changes with clear and concise commit messages representing logical steps in your development process.
-
-6. Push Changes
-
-Push your branch to your forked repository on GitHub.
-
-7. Submit Pull Request
-
-Navigate to your forked repository on GitHub and create a new pull request from your feature branch to the original repository's main branch.
-
-8. Provide PR Description
-
-In the PR description, explain the changes made, the approach taken, and any challenges faced. Be clear and concise.
+1. Read and comprehend the test automation challenge requirements provided in this repository.
+2. Fork the original repository to your GitHub account to submit pull requests.
+3. Create a New Branch to work on your changes.
+4. Implement test automation according to the challenge requirements. Follow best practices for writing clear, maintainable, and efficient code.
+5. Commit your changes with clear and concise commit messages representing logical steps in your development process.
+6. Push your branch to your forked repository on GitHub.
+7. Navigate to your forked repository on GitHub and create a new pull request from your feature branch to the original repository's main branch.
+8. In the PR description, explain the changes made, the approach taken, and any challenges faced. Be clear and concise.
 
 ## The Challenge
 
