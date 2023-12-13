@@ -1,4 +1,4 @@
-# Aviv QA Web Technical Test
+# AVIV QA Web Technical Test
 
 ## Overview
 
