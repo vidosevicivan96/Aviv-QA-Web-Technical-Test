@@ -5,7 +5,7 @@ import { addMultipleProductsToCart, closeCartPopup, goToBooksPage } from '../tes
 import { goToCart } from '../testdata/helpers/register-page-helpers';
 import { clickQuantityUpButton, removeProduct, validatePrice, verifyProductsAreInCart, verifyQuantityOfProducts } from '../testdata/helpers/cart-helpers';
 
-﻿test('user signup and checkout', async ({ page, context }) => {
+﻿test('verify cart functionality', async ({ page, context }) => {
 
     const cfClearanceCookie = {
         name: 'cf_clearance',

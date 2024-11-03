@@ -1,97 +1,103 @@
-# AVIV QA Web Technical Test
 
-## Overview
+# Playwright Automation Project for Demo NopCommerce
 
-Welcome to the Aviv QA Web Technical Test! This challenge involves automating test scenarios for the [demo.nopcommerce.com](https://demo.nopcommerce.com/) website using your preferred programming language (TypeScript, JavaScript, Java, Python, or .NET) and your preferred test automation framework or library (Playwright, WebdriverIO, Cypress, TestCafe, or Selenium Webdriver). 
+This project is an automation suite developed in Playwright and TypeScript for the [https://demo.nopcommerce.com/](https://demo.nopcommerce.com/) website.
 
-The focus is on implementing automation tests following the Page Object Model (POM) and Data-Driven Testing (DDT) principles for better maintainability and readability.
+## Prerequisites
+
+To run these tests locally, you need to have the following installed on your machine:
+- **Node.js** (version 16 or compatible with Playwright)
+- **npm** (Node Package Manager)
 
 ## Getting Started
 
-1. Read and comprehend the test automation challenge requirements provided in this repository.
-2. Fork the original repository to your GitHub account to submit pull requests.
-3. Create a New Branch to work on your changes.
-4. Implement test automation according to the challenge requirements. Follow best practices for writing clear, maintainable, and efficient code.
-5. Commit your changes with clear and concise commit messages representing logical steps in your development process.
-6. Push your branch to your forked repository on GitHub.
-7. Navigate to your forked repository on GitHub and create a new pull request from your feature branch to the original repository's main branch.
-8. In the PR description, explain the changes made, the approach taken, and any challenges faced. Be clear and concise.
+### Clone the Repository
 
-## The Challenge
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
 
-### Test Scenarios
+### Install Dependencies
 
-#### Scenario 1: User Signup and Checkout
+Run the following command to install the required dependencies:
 
-1. Navigate to the website.
-2. Click on the "Register" link.
-3. Fill in valid information for a new user.
-4. Verify successful registration and redirection to the homepage.
-5. Log in with the newly created user credentials.
-6. Add a product to the shopping cart.
-7. Proceed to the checkout process.
-8. Verify the checkout process steps: Cart, Address, Shipping, Payment.
-9. Fill in valid shipping information.
-10. Choose a shipping method.
-11. Select a payment method.
-12. Complete the purchase.
-13. Verify successful purchase and user confirmation.
+```bash
+npm install
+```
 
-#### Scenario 2: Invalid Signup Attempt
+### Running Tests Locally
 
-1. Navigate to the website.
-2. Click on the "Register" link.
-3. Fill in invalid information for a new user.
-4. Verify the user is not registered, and an appropriate error message is displayed.
+Before running the tests, make sure that 'CF_CLEARANCE_COOKIE' variable value in .env file is set correctly.
+To run the tests locally, use the following commands:
 
-#### Scenario 3: Existing User Login and Checkout
+1. Install the required Playwright browsers (if not already installed):
+   ```bash
+   npx playwright install
+   ```
 
-1. Navigate to the website.
-2. Log in with valid existing user credentials.
-3. Add a product to the shopping cart.
-4. Proceed to the checkout process.
-5. Verify the checkout process steps: Cart, Address, Shipping, Payment.
-6. Fill in valid shipping information.
-7. Choose a shipping method.
-8. Select a payment method.
-9. Complete the purchase.
-10. Verify successful purchase and user confirmation.
+2. Run the tests in headed mode (headless mode turned off):
+   ```bash
+   npm test
+   ```
 
-#### Scenario 4: Verify Cart Functionality
+3. To view the test results in a Playwright HTML report, run:
+   ```bash
+   npx playwright show-report
+   ```
+   This command will open a local server with detailed logs and validation results for each test.
 
-1. Navigate to the website.
-2. Add multiple products to the shopping cart.
-3. Verify correct products and quantities in the shopping cart.
-4. Modify the quantity of a product.
-5. Remove a product from the cart.
-6. Verify the cart is updated accordingly.
+## Project Structure
 
-### Continuous Integration
+The project follows the Page Object Model (POM) pattern for better code organization and maintainability.
 
-- The project should be integrated with (CircleCI, GitLab, Jenkins, or GitHub Actions) for continuous integration.
-- The automation suite is triggered on each push or pull request to the repository.
+- **Tests**: The main test cases, focused on validations, are located in the `tests` directory.
+- **Helpers**: Helper methods, locators, and underlying code logic are organized under the `helpers` directory.
 
-### Test Reports
+Example directory structure:
 
-- Test reports should be generated after each test run and can be found in the `/reports` directory.
+```
+workspaces/e2e/e2e-tests/
+├── testdata/
+│   ├── data/
+│   ├── helpers/
+│   └── locators.ts
+└── tests/
+    ├── existing-user-login-and-checkout.spec.ts
+    ├── invalid-signup-attempt.spec.ts
+    ├── test-set-up.ts
+    ├── user-signup-and-checkout.spec.ts
+    └── verify-cart-functionality.spec.ts
+```
 
-### Issues and Challenges
+## Continuous Integration
 
-- Document any challenges faced during the automation process and how they were addressed.
+The project includes a GitHub Actions CI/CD pipeline that runs on each push or pull request. This setup helps in maintaining code quality and ensures that tests are executed consistently on the repository.
 
-### Future Improvements
+### Important Notes
 
-- Highlight any improvements or optimizations considered for future iterations.
+- **Headless mode**: I have turned off headless mode since Cloudflare detects it as bot so the tests fail because of it.
+- **HTML Reports**: Once the tests are completed, use `npx playwright show-report` to view the Playwright HTML reports for detailed test results.
+- **Challenges**: The site uses Cloudflare's reCAPTCHA, which is bypassed using a `cf_clearance` cookie. This cookie is managed via environment variables and is included in `.env`.
+  - **Note**: This is currently pushed to GitHub for testing purposes but would ideally be stored securely in GitHub Secrets (Not sure you have access to my GitHub Secrets Variables).
 
-### Bonus Points
+## Parallel Test Execution
 
-- You can earn bonus points for:
-  - Implementing parameterized tests.
-  - Using environmental configurations.
-  - Demonstrating knowledge of parallel test execution.
+Playwright by default utilizes the maximum number of available runners, allowing tests to run in parallel. **Note**: Running tests in parallel during CI/CD can lead to high CPU usage, potentially exceeding the capabilities of the remote machine.
 
-## Good luck!
+To control the number of workers in CI/CD, you can adjust the following setting in the Playwright config:
 
-Best regards, 
+```typescript
+// playwright.config.ts
+workers: process.env.CI ? 1 : undefined,  // Limits to 1 worker in CI/CD
+```
 
-Aviv Quality Team
+## Future Improvements
+
+1. Use random data for test cases instead of hardcoded user data.
+2. Integrate a linter for code style consistency.
+3. Add a code quality analyzer.
+4. Dockerize the automation project to make it more portable.
+
+
+---
+
+**Happy Testing!**

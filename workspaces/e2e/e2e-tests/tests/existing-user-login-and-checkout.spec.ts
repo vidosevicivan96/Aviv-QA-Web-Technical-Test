@@ -7,7 +7,7 @@ import { clickLoginButton, enterLoginData } from '../testdata/helpers/login-page
 import { acceptTermsAndProceedToCheckout, addProductToCart, completePurchase, continueToFifthStep, continueToFourthStep, continueToSecondStep, continueToThirdStep, goToCart, validateCheckoutSteps, validatePaymentSuccessful } from '../testdata/helpers/register-page-helpers';
 import { addCfClearanceCookie } from '../testdata/helpers/cookie-helpers';
 
-﻿test.only('user signup and checkout', async ({ page, context }) => {
+﻿test('existing user login and checkout', async ({ page, context }) => {
 
     await addCfClearanceCookie(context);
 

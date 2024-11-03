@@ -1,7 +1,8 @@
 name: CI for Playwright Tests on Windows
 
 on:
-  push:  # Trigger the workflow on every push, regardless of branch
+  push:      # Trigger the workflow on every push, regardless of branch
+  pull_request:  # Trigger the workflow on every pull request
 
 jobs:
   run-playwright-tests:

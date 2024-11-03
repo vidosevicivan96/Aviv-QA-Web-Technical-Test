@@ -4,7 +4,7 @@ import { pageTitles } from '../testdata/data/pageTitles';
 import { clickRegisterLink } from '../testdata/helpers/homepage-helpers';
 import { fillInvalidRegistrationData, validateRegistrationInvalid } from '../testdata/helpers/register-page-helpers';
 
-﻿test('user signup and checkout', async ({ page, context }) => {
+﻿test('invalid signup attempt', async ({ page, context }) => {
 
     const cfClearanceCookie = {
         name: 'cf_clearance',
