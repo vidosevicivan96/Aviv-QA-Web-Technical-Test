@@ -26,6 +26,8 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install
 
-      # Step 5: Run Playwright tests
+      # Step 5: Run Playwright tests in headed mode
       - name: Run Playwright Tests
         run: npm test
+        env:
+          HEADLESS: '0'  # Set headless mode to false
