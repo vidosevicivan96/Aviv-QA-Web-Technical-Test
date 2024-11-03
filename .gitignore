@@ -1,0 +1,10 @@
+# ---> NPM
+node_modules/
+
+# ---> Reports
+test-results/
+playwright-report/
+
+# Ignore macOS system files (.DS_Store) in all directories
+.DS_Store
+**/.DS_Store

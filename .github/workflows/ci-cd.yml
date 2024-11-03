@@ -1,0 +1,27 @@
+name: CI for Playwright Tests on Windows
+
+on:
+  push:  # Trigger the workflow on every push, regardless of branch
+
+jobs:
+  run-playwright-tests:
+    runs-on: windows-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Specify Node.js version compatible with Playwright
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run Playwright tests
+      - name: Run Playwright Tests
+        run: npm test
